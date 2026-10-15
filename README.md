@@ -120,6 +120,14 @@ This provides students with immediate access to official KTU academic regulation
    ```
    Configure your Supabase URL, anon key, and admin access hash in `.env.local`.
 
+   **No Supabase project yet?** Run fully offline with the local JSON store by putting this in `.env.local` instead:
+   ```bash
+   ENGIVAULT_ALLOW_LOCAL_FALLBACK=true
+   ADMIN_ACCESS_CODE=choose-a-code
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+   ```
+   Then sign in at `/admin/login` with your `ADMIN_ACCESS_CODE`.
+
 4. Start the local development server:
    ```bash
    npm run dev
