@@ -686,7 +686,8 @@ export async function createSubject(subject: Partial<Subject>): Promise<Subject>
   if (isSupabaseConfigured()) {
     try {
       const supabase = createAdminClient();
-      const { data, error } = await supabase.from("subjects").insert(row).select().single();
+      const { modules_count, lessons_count, materials_count, ...dbRow } = row;
+      const { data, error } = await supabase.from("subjects").insert(dbRow).select().single();
       if (error) {
         console.error("Supabase createSubject error:", error);
         throw new Error(`Failed to create subject: ${error.message}`);
